@@ -67,6 +67,65 @@ Each development stage will include implementation, testing, documentation, and 
 
 **Domain:** Python Development
 
+
+# GeneWeaver – GPU-Accelerated CRISPR Alignment Engine
+
+## Project Overview
+
+GeneWeaver is a Python-based project focused on developing a GPU-accelerated CRISPR alignment engine for DNA sequence analysis.
+
+The project explores DNA sequence alignment techniques and GPU computing to improve the efficiency of computationally intensive sequence-processing operations.
+
+## Project Objectives
+
+- Understand DNA sequences and CRISPR alignment concepts.
+- Develop DNA sequence alignment algorithms using Python.
+- Explore GPU-based parallel processing.
+- Compare CPU and GPU execution performance.
+- Evaluate alignment accuracy and computational efficiency.
+- Develop an interface to visualize alignment results.
+
+## Proposed Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming |
+| NumPy | Numerical operations |
+| CUDA | GPU computing |
+| CuPy | GPU array processing |
+| Streamlit | Web interface |
+| Git and GitHub | Version control |
+| pytest | Testing |
+
+The final technology stack will depend on hardware compatibility and project requirements.
+
+## Expected Features
+
+- DNA sequence input and processing.
+- CRISPR-related sequence alignment.
+- CPU-based alignment implementation.
+- GPU-accelerated alignment implementation.
+- Alignment result analysis.
+- CPU versus GPU performance comparison.
+- Interactive result visualization.
+
+## Development Approach
+
+The project will be developed incrementally, beginning with DNA sequence processing and CPU-based alignment.
+
+GPU acceleration will be introduced after establishing a working CPU implementation. A web interface will subsequently be developed to display alignment results and performance metrics.
+
+## Project Information
+
+- **Project:** GeneWeaver
+- **Domain:** Python Development
+- **Organization:** Infotact Solutions
+- **Duration:** 10 November 2026 – 10 December 2026
+- **Status:** Initial Development
+
+## Disclaimer
+
+GeneWeaver is an educational development project. Its results are not intended to replace validated clinical or medical genetic analysis tools.
 **Internship Organization:** Infotact Solutions
 
 ## 7. Disclaimer
