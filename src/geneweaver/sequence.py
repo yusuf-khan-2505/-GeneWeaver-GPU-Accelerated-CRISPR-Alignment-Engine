@@ -24,3 +24,12 @@ def normalize_dna_sequence(sequence: str) -> str:
         )
 
     return normalized
+
+
+def gc_content_percentage(sequence: str) -> float:
+    """Return the percentage of bases in a DNA sequence that are G or C."""
+
+    normalized = normalize_dna_sequence(sequence)
+    gc_count = normalized.count("G") + normalized.count("C")
+
+    return gc_count / len(normalized) * 100

@@ -1,7 +1,7 @@
 
 import unittest
 
-from geneweaver.sequence import normalize_dna_sequence
+from geneweaver.sequence import gc_content_percentage, normalize_dna_sequence
 
 
 class TestNormalizeDNASequence(unittest.TestCase):
@@ -39,6 +39,15 @@ class TestNormalizeDNASequence(unittest.TestCase):
     def test_non_string_input(self):
         with self.assertRaises(TypeError):
             normalize_dna_sequence(123)
+
+
+class TestGCContentPercentage(unittest.TestCase):
+
+    def test_calculates_gc_percentage(self):
+        self.assertEqual(gc_content_percentage("ATGC"), 50.0)
+
+    def test_normalizes_sequence_before_calculation(self):
+        self.assertEqual(gc_content_percentage(" g c a "), 66.66666666666666)
 
 
 if __name__ == "__main__":
