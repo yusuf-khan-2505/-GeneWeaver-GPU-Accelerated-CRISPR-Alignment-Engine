@@ -1,7 +1,11 @@
-
+﻿
 import unittest
 
-from geneweaver.sequence import gc_content_percentage, normalize_dna_sequence
+from geneweaver.sequence import (
+    gc_content_percentage,
+    normalize_dna_sequence,
+    reverse_complement,
+)
 
 
 class TestNormalizeDNASequence(unittest.TestCase):
@@ -49,6 +53,20 @@ class TestGCContentPercentage(unittest.TestCase):
     def test_normalizes_sequence_before_calculation(self):
         self.assertEqual(gc_content_percentage(" g c a "), 66.66666666666666)
 
+class TestReverseComplement(unittest.TestCase):
+
+    def test_reverse_complement(self):
+        self.assertEqual(reverse_complement("ATGC"), "GCAT")
+
+    def test_lowercase_sequence(self):
+        self.assertEqual(reverse_complement("atgc"), "GCAT")
+
+    def test_sequence_with_whitespace(self):
+        self.assertEqual(reverse_complement("AT G C"), "GCAT")
+
+    def test_invalid_sequence(self):
+        with self.assertRaises(ValueError):
+            reverse_complement("ATGX")
 
 if __name__ == "__main__":
     unittest.main()

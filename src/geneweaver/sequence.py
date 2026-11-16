@@ -33,3 +33,13 @@ def gc_content_percentage(sequence: str) -> float:
     gc_count = normalized.count("G") + normalized.count("C")
 
     return gc_count / len(normalized) * 100
+
+
+def reverse_complement(sequence: str) -> str:
+    """Return the reverse complement of a DNA sequence."""
+
+    normalized = normalize_dna_sequence(sequence)
+
+    complement_table = str.maketrans("ATGC", "TACG")
+
+    return normalized.translate(complement_table)[::-1]
