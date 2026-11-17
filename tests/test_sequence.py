@@ -1,5 +1,12 @@
-﻿
+
 import unittest
+
+from geneweaver.sequence import (
+    find_exact_match,
+    gc_content_percentage,
+    normalize_dna_sequence,
+    reverse_complement,
+)
 
 from geneweaver.sequence import (
     gc_content_percentage,
@@ -52,7 +59,6 @@ class TestGCContentPercentage(unittest.TestCase):
 
     def test_normalizes_sequence_before_calculation(self):
         self.assertEqual(gc_content_percentage(" g c a "), 66.66666666666666)
-
 class TestReverseComplement(unittest.TestCase):
 
     def test_reverse_complement(self):
@@ -67,6 +73,31 @@ class TestReverseComplement(unittest.TestCase):
     def test_invalid_sequence(self):
         with self.assertRaises(ValueError):
             reverse_complement("ATGX")
+
+
+class TestFindExactMatch(unittest.TestCase):
+
+    def test_returns_first_zero_based_position(self):
+        self.assertEqual(find_exact_match("ACGTAC", "GTA"), 2)
+
+    def test_returns_minus_one_when_absent(self):
+        self.assertEqual(find_exact_match("ACGTAC", "GGG"), -1)
+
+    def test_normalizes_case_and_whitespace(self):
+        self.assertEqual(find_exact_match("ac gtac", " gT a "), 2)
+
+
+class TestFindExactMatch(unittest.TestCase):
+
+    def test_returns_first_zero_based_position(self):
+        self.assertEqual(find_exact_match("ACGTAC", "GTA"), 2)
+
+    def test_returns_minus_one_when_absent(self):
+        self.assertEqual(find_exact_match("ACGTAC", "GGG"), -1)
+
+    def test_normalizes_case_and_whitespace(self):
+        self.assertEqual(find_exact_match("ac gtac", " gT a "), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
