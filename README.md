@@ -131,3 +131,7 @@ GeneWeaver is an educational development project. Its results are not intended t
 ## 7. Disclaimer
 
 GeneWeaver is an educational and development project intended to explore CRISPR-related DNA sequence alignment and GPU computing. Its results are not intended to replace validated clinical or medical genetic analysis tools.
+
+## Development Progress
+
+The sequence utilities currently validate and normalize DNA input, calculate GC content, return reverse complements, and locate the first exact pattern match. The exact matcher uses zero-based positions and returns -1 when no match exists. Automated tests cover these behaviors, including matches at sequence boundaries.

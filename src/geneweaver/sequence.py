@@ -1,5 +1,4 @@
-
-"""DNA sequence validation utilities."""
+"""DNA sequence validation and matching utilities."""
 
 
 VALID_BASES = {"A", "T", "G", "C"}
@@ -39,18 +38,9 @@ def reverse_complement(sequence: str) -> str:
     """Return the reverse complement of a DNA sequence."""
 
     normalized = normalize_dna_sequence(sequence)
-
     complement_table = str.maketrans("ATGC", "TACG")
 
     return normalized.translate(complement_table)[::-1]
-
-def find_exact_match(sequence: str, pattern: str) -> int:
-    """Return the first zero-based position of pattern, or -1 if absent."""
-
-    normalized_sequence = normalize_dna_sequence(sequence)
-    normalized_pattern = normalize_dna_sequence(pattern)
-
-    return normalized_sequence.find(normalized_pattern)
 
 
 def find_exact_match(sequence: str, pattern: str) -> int:
