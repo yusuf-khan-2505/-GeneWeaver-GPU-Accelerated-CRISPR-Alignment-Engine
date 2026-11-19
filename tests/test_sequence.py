@@ -3,6 +3,7 @@ import unittest
 from geneweaver.sequence import (
     find_exact_match,
     gc_content_percentage,
+    hamming_distance,
     normalize_dna_sequence,
     reverse_complement,
 )
@@ -73,6 +74,25 @@ class TestFindExactMatch(unittest.TestCase):
 
     def test_match_at_end(self):
         self.assertEqual(find_exact_match("ACGTAC", "TAC"), 3)
+
+
+class TestHammingDistance(unittest.TestCase):
+    def test_identical_sequences_have_zero_distance(self):
+        self.assertEqual(hamming_distance("ACGT", "ACGT"), 0)
+
+    def test_counts_different_bases(self):
+        self.assertEqual(hamming_distance("ACGT", "AGGA"), 2)
+
+    def test_normalizes_case_and_whitespace(self):
+        self.assertEqual(hamming_distance("ac gt", "AG GA"), 2)
+
+    def test_rejects_different_lengths(self):
+        with self.assertRaises(ValueError):
+            hamming_distance("ACG", "ACGT")
+
+    def test_rejects_invalid_dna(self):
+        with self.assertRaises(ValueError):
+            hamming_distance("ACGT", "ACGX")
 
 
 if __name__ == "__main__":

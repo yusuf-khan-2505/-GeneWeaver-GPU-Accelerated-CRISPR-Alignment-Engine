@@ -134,4 +134,4 @@ GeneWeaver is an educational and development project intended to explore CRISPR-
 
 ## Development Progress
 
-The sequence utilities currently validate and normalize DNA input, calculate GC content, return reverse complements, and locate the first exact pattern match. The exact matcher uses zero-based positions and returns -1 when no match exists. Automated tests cover these behaviors, including matches at sequence boundaries.
+The sequence utilities currently validate and normalize DNA input, calculate GC content, return reverse complements, locate the first exact pattern match, and count base differences between equal-length sequences using Hamming distance. Exact matches use zero-based positions and return -1 when absent. Hamming distance rejects sequences of different lengths. Automated tests cover these behaviors, including matches at sequence boundaries.

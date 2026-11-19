@@ -1,4 +1,4 @@
-"""DNA sequence validation and matching utilities."""
+"""DNA sequence validation, comparison, and matching utilities."""
 
 
 VALID_BASES = {"A", "T", "G", "C"}
@@ -50,3 +50,18 @@ def find_exact_match(sequence: str, pattern: str) -> int:
     normalized_pattern = normalize_dna_sequence(pattern)
 
     return normalized_sequence.find(normalized_pattern)
+
+
+def hamming_distance(sequence_a: str, sequence_b: str) -> int:
+    """Count differing bases in two DNA sequences of equal length."""
+
+    normalized_a = normalize_dna_sequence(sequence_a)
+    normalized_b = normalize_dna_sequence(sequence_b)
+
+    if len(normalized_a) != len(normalized_b):
+        raise ValueError("DNA sequences must have equal lengths.")
+
+    return sum(
+        base_a != base_b
+        for base_a, base_b in zip(normalized_a, normalized_b)
+    )
